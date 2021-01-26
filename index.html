@@ -25,11 +25,11 @@
 
                      <div class="col-md-5 center-item">
                         <div class="input-group number-spinner">
-                           <button class="btn btn-default"><i class="fas fa-minus"></i></button>
-                           <input type="text" class="form-control text-center" value="1">
-                           <button class="btn btn-default"><i class="fas fa-plus"></i></button>
+                           <button id="minusBtn" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input id="quantityOfIphone11" type="text" class="form-control text-center" value="1">
+                           <button id="plusBtn" class="btn btn-default"><i class="fas fa-plus"></i></button>
                         </div>
-                        <h5>$1219</h5>
+                        <h5>$<span id="iphone11PriceTotal">1219</span></h5>
                         <img src="images/remove.png" alt="" class="remove-item">
                      </div>
                   </div>
@@ -64,7 +64,7 @@
                      </div>
 
                      <div class="col-md-4 status">
-                        <h5>$1,278</h5>
+                        <h5>$<span id="subTotal">1,278</span></h5>
                         <h5>$0</h5>
                         <h5>$1,278</h5>
                      </div>
@@ -79,7 +79,41 @@
    </section>
 
    <script>
+      // iphone 11 (+) btn event handler
+      const plusBtn = document.getElementById('plusBtn');
+      plusBtn.addEventListener('click', function(){
+         const quantityNumber = quantityPlus("quantityOfIphone11");
+
+         iphone11PriceTotal("iphone11PriceTotal", quantityNumber);
+         
+
+      })
+
+      // iphone 11 (-) btn event handler
+      const minusBtn = document.getElementById('minusBtn');
+      minusBtn.addEventListener('click', function(){
+         const quantityNumber = quantityMinus("quantityOfIphone11");
+         iphone11PriceTotal("iphone11PriceTotal", quantityNumber);
+
+         
+      })
       
+      function quantityPlus(id){
+         const quantity = document.getElementById(id).value;
+         const quantityNumber = parseFloat(quantity) + 1;
+         document.getElementById(id).value = quantityNumber;
+         return quantityNumber;
+      }
+      function quantityMinus(id){
+         const quantity = document.getElementById(id).value;
+         const quantityNumber = parseFloat(quantity) - 1;
+         document.getElementById(id).value = quantityNumber;
+         return quantityNumber;
+      }
+      function iphone11PriceTotal(id, quantityNumber){
+         const iphone11RealPrice = 1219;
+         document.getElementById(id).innerText = iphone11RealPrice * quantityNumber;
+      }
    </script>
 </body>
 

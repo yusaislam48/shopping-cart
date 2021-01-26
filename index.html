@@ -14,7 +14,7 @@
 
    <section>
       <div class="container">
-         <div class="cart">
+         <div  id="cart" class="cart">
             <div class="col-md-12 col-lg-10 mx-auto">
                <div class="cart-item">
                   <div class="row">
@@ -71,78 +71,19 @@
                   </div>
                </div>
                <div class="col-md-12 pt-4 pb-4">
-                  <button type="button" class="btn btn-success check-out">Check Out</button>
+                  <button id="checkOutBtn" type="button" class="btn btn-success check-out">Check Out</button>
                </div>
             </div>
          </div>
       </div>
    </section>
 
-   <script>
-
-      
-      // iphone 11 (+) btn event handler
-      const plusBtn1 = document.getElementById('plusBtn1');
-      plusBtn1.addEventListener('click', function(){
-         const quantityNumber = quantityPlus("quantityOfIphone11");
-         priceTotal("iphone11PriceTotal", quantityNumber, 1219);
-         subTotalAndTotal();
-      })
-
-      // iphone 11 (-) btn event handler
-      const minusBtn1 = document.getElementById('minusBtn1');
-      minusBtn1.addEventListener('click', function(){
-         const quantityNumber = quantityMinus("quantityOfIphone11");
-         priceTotal("iphone11PriceTotal", quantityNumber, 1219); 
-         subTotalAndTotal();
-      })
-      
-      // iphone 11 Silicon Case (+) btn event handler
-      const plusBtn2 = document.getElementById('plusBtn2');
-      plusBtn2.addEventListener('click', function(){
-         const quantityNumber = quantityPlus("quantityOfSiliconCase");
-         priceTotal("casePriceTotal", quantityNumber, 59);
-         subTotalAndTotal();
-      })
-
-      // iphone 11 (-) btn event handler
-      const minusBtn2 = document.getElementById('minusBtn2');
-      minusBtn2.addEventListener('click', function(){
-         const quantityNumber = quantityMinus("quantityOfSiliconCase");
-         priceTotal("casePriceTotal", quantityNumber, 59); 
-         subTotalAndTotal();
-      })
+   <section class="contaiiner" id="orderConfirmation">
+      <h2 class="text-center">Thanks for your order!</h2>
+   </section>
 
 
-
-
-      function quantityPlus(id){
-         const quantity = document.getElementById(id).value;
-         const quantityNumber = parseFloat(quantity) + 1;
-         document.getElementById(id).value = quantityNumber;
-         return quantityNumber;
-      }
-      function quantityMinus(id){
-         const quantity = document.getElementById(id).value;
-         const quantityNumber = parseFloat(quantity) - 1;
-         document.getElementById(id).value = quantityNumber;
-         return quantityNumber;
-      }
-      function priceTotal(id, quantityNumber, price){
-         const realPrice = price;
-         document.getElementById(id).innerText = realPrice * quantityNumber;
-      }
-      function subTotalAndTotal(){
-         const iphone11PriceTotal = document.getElementById('iphone11PriceTotal').innerText;
-         const iphone11PriceTotalNumber = parseFloat(iphone11PriceTotal);
-
-         const casePriceTotal = document.getElementById('casePriceTotal').innerText;
-         const casePriceTotalNumber = parseFloat(casePriceTotal);
-           
-         document.getElementById('subTotal').innerText = iphone11PriceTotalNumber + casePriceTotalNumber;
-         document.getElementById('total').innerText = iphone11PriceTotalNumber + casePriceTotalNumber;
-      }
-   </script>
+<script src="script.js"></script>
 </body>
 
 </html>

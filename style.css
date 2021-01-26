@@ -53,3 +53,11 @@ body{
 	background-color: #2FBE70;
 	border: none;
 }
+#orderConfirmation{
+	display: none;
+	margin:10% 20%;
+	padding: 30px;
+	background-color:tomato;
+	color: white;
+	border-radius: 10px;
+}
